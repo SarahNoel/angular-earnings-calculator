@@ -33,8 +33,7 @@
               <label>Tip Rate (Percent) </label><br>
              <input class="form-input" type="number" placeholder="20" ng-model="mealTipRate" min="0" step=".01">
             </div>
-            <input class="btn btn-default btn-sm" type="submit" value="Submit" ng-click='calculate()'>
-            <input class="btn btn-default btn-sm" type="button" value="Clear" ng-click= 'clear()'>
+            <input class="btn btn-primary btn-sm" type="submit" value="Submit" ng-click='calculate()'>
             <br><br>
           </form>
           <br>
@@ -47,22 +46,22 @@
               <!-- customer totals -->
               <h2 class="text-center">Total Charges<br><span class="small">Charge per customer</span></h2>
               <div class="totals">
-                <p>Subtotal: {{activeSubtotal}} </p>
-                <p>Tip:  {{activeTip}} </p>
-                <p>Total: {{activeTotal}} </p>
+                <h5>Subtotal: <span class='lighter' ng-show='show'> ${{activeSubtotal}} </span></h5>
+                <h5>Tip:  <span class='lighter' ng-show='show'> ${{activeTip}} </span> </h5>
+                <h5>Total: <span class='lighter' ng-show='show'> ${{activeTotal}}</span> </h5>
               </div>
             </div>
             <div class="col-sm-6">
               <!-- all totals -->
               <h2 class="text-center">Total Earnings<br><span class="small">Running totals</span></h2>
               <div class="totals">
-                <p>Total Tips:  {{runningTips}}</p>
-                <p>Meal count: {{runningCount}}</p>
-                <p>Average tip: {{runningTipAverage}}</p>
+                <h5>Total Tips: <span class='lighter' ng-show='show'> ${{runningTips}}</span></h5>
+                <h5>Meal count: <span class='lighter' ng-show='show'> {{runningCount}}</span></h5>
+                <h5>Average tip: <span class='lighter' ng-show='show'> ${{runningTipAverage}}</span></h5>
 
               </div>
               <div class="text-center">
-                <input class="btn btn-default btn-sm" type="button" value="Reset">
+                <input ng-click='reset()' class="btn btn-warning btn-sm" type="button" value="Reset">
               </div>
             </div>
           </div>

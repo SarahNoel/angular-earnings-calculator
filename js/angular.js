@@ -2,6 +2,7 @@ var app = angular.module('earningsCalc', []);
 
 app.controller('Calculator', ['$scope', function($scope) {
   $scope.calculate = function(){
+    $scope.show = true;
     if($scope.runningTips === undefined){
       $scope.runningTips = $scope.runningCount = $scope.runningTipAverage = 0;
     }
@@ -15,5 +16,9 @@ app.controller('Calculator', ['$scope', function($scope) {
     $scope.runningCount = +$scope.runningCount + 1;
     $scope.runningTipAverage = (+$scope.runningTips / +$scope.runningCount).toFixed(2);
     $scope.mealPrice = $scope.mealTipRate = $scope.mealTaxRate = ('');
+    };
+  $scope.reset = function () {
+    $scope.show = false;
+    $scope.activeTotal = $scope.activeTip = $scope.activeSubtotal = $scope.runningCount = $scope.runningTips = $scope.runningTipAverage = $scope.runningCount = ('');
   };
 }]);
